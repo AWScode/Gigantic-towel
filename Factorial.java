@@ -4,10 +4,19 @@ import java.util.*;
 
 public class Factorial{
 
+  public static long doFactorial(int intNumber){
+    long result = 1;
+    for (int i = intNumber ; i > 1; i--) {
+      result = result * i;
+    }
+    return result;
+  }
 
+
+  
   public static void main(String[] args) {
     System.out.println("--------Factorial Calculator--------");
-/*
+
     //inputs----------------------------------------
     System.out.print("Your number: ");
     Scanner input = new Scanner(System.in);
@@ -15,17 +24,12 @@ public class Factorial{
 
     //convert string to int
     int intNumber = Integer.parseInt(stringNumber);
-*/
 
-    int intNumber = 10;
+    long finalResult = doFactorial(intNumber);
 
-    long result = 1;
-    for (int i = intNumber ; i > 1; i--) {
-      result = result * i;
-    }
 
-    System.out.print("The factorial of 10 is : ");
-    System.out.println(result);
+    System.out.print("Your result: ");
+    System.out.println(finalResult);
 
   }
 
