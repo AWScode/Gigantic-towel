@@ -10,11 +10,23 @@ import java.util.*;
 //create class
 public class Prime{
 
-  public static void printPrimeFactors(int number1) {
+  public static void printPrimeFactors(int num) {
+    if (num == 2) {
+      System.out.println(num);
+    }
+    for (int i = 2; i <= num; i++) {//can be: int (num/2) becaues no number can have factor greater than half of it
+      if (num%i == 0) {
+        System.out.println(i);
+        printPrimeFactors(num/i);//calling the method inside the method
+        //num = num/i;
+        break;
+      }
+    }
 
-    int 
 
   }
+
+
 
   public static boolean checkPrime(int check) {
     boolean isPrime = true;
@@ -53,13 +65,12 @@ public class Prime{
     //inputs----------------------------------------
     System.out.print("Your number: ");
     Scanner input1 = new Scanner(System.in);
-    int number1 = input1.nextInt();
+    int num = input1.nextInt();
 
     //pass baseNum to the nextPrime methods
-    int nPrime = printPrimeFactors(number1);
+    printPrimeFactors(num);//no output so don't set it = sth
 
 
-    System.out.println("The factor of the number is: ");
 
   }
 }
