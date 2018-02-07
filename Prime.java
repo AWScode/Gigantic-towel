@@ -26,7 +26,17 @@ public class Prime{
 
   }
 
+  public static long mersnnePrime(int power) {
+    long finalM = 0;//default = 0;
+    for (int i = 1; i < power; i++){
+      long mNum = 2^i - 1;
+      if (checkPrime(mNum)){
+        finalM = mNum;
+      }
+    }
 
+    return finalM;
+  }
 
   public static boolean checkPrime(int check) {
     boolean isPrime = true;
@@ -68,8 +78,9 @@ public class Prime{
     int num = input1.nextInt();
 
     //pass baseNum to the nextPrime methods
-    printPrimeFactors(num);//no output so don't set it = sth
-
+    //printPrimeFactors(num);//no output so don't set it = sth
+    long result = mersnnePrime(num);
+    System.out.println(result);
 
 
   }
