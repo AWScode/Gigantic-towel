@@ -32,15 +32,16 @@ public class Prime{
       long mNum = 2^i - 1;
       if (checkPrime(mNum)){
         finalM = mNum;
+        break;
       }
     }
 
     return finalM;
   }
 
-  public static boolean checkPrime(int check) {
+  public static boolean checkPrime(long check) {
     boolean isPrime = true;
-    for (int i = 2; i < check; i++) {
+    for (long i = 2; i < check; i++) {
       // '%' is the mod operator. It tells you what the remainder
       // is if you were to divide the two numbers.
       if (check%i == 0) {
