@@ -1,6 +1,8 @@
 //Kitty Liu
 //Due date: Friday, 2018.2.16
 
+import java.util.*;
+
 public class Student {
 
 //all the info of student
@@ -8,42 +10,77 @@ public class Student {
   public static String studentTieColor;
   public static String studentBirthday;
   public static String studentEthnicity;
+  public static String studentEmail;
   public static int studentHeight;
   public static int studentWeight;
 
+  //didn't know how to categorize this one
+  public static String studentClass;
 
-  public Student(String a, int a, String o) {
-    this.studentName = n;
-    this.studentAge = a;
-    this.studentTieColor = o;
+  public Student(String a, String b, String c, String d, String e, int f, int g) {
+    this.studentName = a;
+    this.studentTieColor = b;
+    this.studentBirthday = c;
+    this.studentEthnicity = d;
+    this.studentEmail = e;
+    this.studentHeight = f;
+    this.studentWeight = g;
   }
 
-  public static void bark() {
-    System.out.println("Woof!");
+//Student's actions
+  public void greet() {//do i take any parameter???
+    System.out.print("Hello, my name is " + studentName + ". ");
+    System.out.println("Nice to meet you!");
   }
 
+//"getters"
   public String getName() {
-    return this.name;
+    return studentName;
+  }
+  public String getTieColor() {
+    return studentTieColor;
+  }
+  public String getBirthday() {
+    return studentBirthday;
+  }
+  public String getEthnicity() {
+    return studentEthnicity;
+  }
+  public String getEmail() {
+    return studentEmail;
   }
 
-  public int getAge() {
-    return age;
+  public int getHeight() {
+    return studentHeight;
+  }
+  public int getWeight() {
+    return studentWeight;
   }
 
-  public String getOwner() {
-    return owner;
+//"setters"
+
+  public void setName(String a) {
+    studentName = a;
+  }
+  public void setTieColor(String b) {
+    studentTieColor = b;
+  }
+  public void setBirthday(String c) {
+    studentBirthday = c;
+  }
+  public void setEthnicity(String d) {
+    studentEthnicity = d;
+  }
+  public void setEmail(String e) {
+    studentEmail = e;
   }
 
-  public static void setName(String n) {
-    name = n;
+  public void setHeight(int f) {
+    studentHeight = f;
+  }
+  public void setWeight(int g) {
+    studentWeight = g;
   }
 
-  public static void setAge(int a) {
-    age = a;
-  }
-
-  public static void setOwner(String o) {
-    owner = o;
-  }
 
 }

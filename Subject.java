@@ -1,24 +1,30 @@
-/* Pound.java by Mr. Considine
-This class holds all of the data and methods
-to create Pound objects. This is a class used
-other files such as Dog.java and Owner.java */
+import java.util.*;
 
-public class Pound {
+public class Subject {
 
   public static void main(String[] args) {
-    System.out.println("Welcome to the Pound!");
-    System.out.println("Here we have some dogs to see.");
+    System.out.println("Welcome to Annie Wright School director!");
+    System.out.println("Here we have some students.");
 
-    Dog fido = new Dog("Fido", 5, "Mr. Burns");
+    Student Justin = new Student("Justin Huang", "green", "Feb. 19th, 2002", "Chinese", "minghao_huang@aw.org", 180, 56);
+    Student Kunkun = new Student("Xukun Cai", "red", "Oct. 7th, 1998", "Chinese", "xukun_cai@aw.org", 182, 59);
 
-    Dog marble = new Dog("Marble", 2, "Ms. Billings");
 
-    Dog cat = new Dog("Actually a Scone", 20, "Mr. Sidman");
+    System.out.println("Here is one student now:");
 
-    System.out.println("Here is one now:");
+    Justin.greet();
+    String printName = Justin.getName();
+    System.out.println("The name of this student: " + printName);
+//still have problem
+//how do i get the specific student's info?
+/*in the terminal:
+    Welcome to Annie Wright School director !
+    Here we have some dogs to see.
+    Here is one student now:
+    Hello, my name is Xukun Cai. Nice to meet you!
+    The name of this student: Xukun Cai
+*/
 
-    fido.bark();
-    String newName = fido.getName();
-    System.out.println("Dog's name is: " + newName);
   }
+
 }
