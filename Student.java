@@ -5,32 +5,30 @@ import java.util.*;
 
 public class Student {
 
-//all the info of student
-  public static String studentName;
-  public static String studentTieColor;
-  public static String studentBirthday;
-  public static String studentEthnicity;
-  public static String studentEmail;
-  public static int studentHeight;
-  public static int studentWeight;
+//all the data
+    private String studentName;
+    private String studentTieColor;
+    private String studentFavoriteFood;
+    private String studentEthnicity;
+    private String studentEmail;
+    private int studentHeight;
+    private int studentWeight;
+    private int studentAge;
 
-  //didn't know how to categorize this one
-  public static String studentClass;
-
-  public Student(String a, String b, String c, String d, String e, int f, int g) {
+  public Student(String a, String b, String c, String d, String e, int f, int g, int h) {
     this.studentName = a;
     this.studentTieColor = b;
-    this.studentBirthday = c;
+    this.studentFavoriteFood = c;
     this.studentEthnicity = d;
     this.studentEmail = e;
     this.studentHeight = f;
     this.studentWeight = g;
+    this.studentAge = h;
   }
 
 //Student's actions
-  public void greet() {//do i take any parameter???
-    System.out.print("Hello, my name is " + studentName + ". ");
-    System.out.println("Nice to meet you!");
+  public static void greet() {//do i take any parameter???
+    System.out.println("Hello, nice to meet you!");
   }
 
 //"getters"
@@ -40,8 +38,8 @@ public class Student {
   public String getTieColor() {
     return studentTieColor;
   }
-  public String getBirthday() {
-    return studentBirthday;
+  public String getFavoriteFood() {
+    return studentFavoriteFood;
   }
   public String getEthnicity() {
     return studentEthnicity;
@@ -56,6 +54,9 @@ public class Student {
   public int getWeight() {
     return studentWeight;
   }
+  public int getAge() {
+    return studentAge;
+  }
 
 //"setters"
 
@@ -65,8 +66,8 @@ public class Student {
   public void setTieColor(String b) {
     studentTieColor = b;
   }
-  public void setBirthday(String c) {
-    studentBirthday = c;
+  public void setFavoriteFood(String c) {
+    studentFavoriteFood = c;
   }
   public void setEthnicity(String d) {
     studentEthnicity = d;
@@ -80,6 +81,9 @@ public class Student {
   }
   public void setWeight(int g) {
     studentWeight = g;
+  }
+  public void setAge(int h) {
+    studentAge = h;
   }
 
 

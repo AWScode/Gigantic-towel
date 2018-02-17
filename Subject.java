@@ -1,30 +1,65 @@
 import java.util.*;
 
 public class Subject {
+  //all the data
+      private String className;
+      private String classTeacherName;
+      private String classAverageGrade;
+      private String classForWhichTie;
+      private int classNumberOfStudent;
+      private int classroom;
 
-  public static void main(String[] args) {
-    System.out.println("Welcome to Annie Wright School director!");
-    System.out.println("Here we have some students.");
 
-    Student Justin = new Student("Justin Huang", "green", "Feb. 19th, 2002", "Chinese", "minghao_huang@aw.org", 180, 56);
-    Student Kunkun = new Student("Xukun Cai", "red", "Oct. 7th, 1998", "Chinese", "xukun_cai@aw.org", 182, 59);
+      public Subject(String a, String b, String c, String d, int g) {
+        this.className = a;
+        this.classTeacherName = b;
+        this.classAverageGrade = c;
+        this.classForWhichTie = d;
+        this.classroom = g;
+      }
+
+      //"getters"
+        public void getAllStudent(){
 
 
-    System.out.println("Here is one student now:");
+        }
+        public String getName() {
+          return className;
+        }
+        public String getTeacherName() {
+          return classTeacherName;
+        }
+        public String getAverageGrade() {
+          return classAverageGrade;
+        }
+        public String getForWhichTie() {
+          return classForWhichTie;
+        }
 
-    Justin.greet();
-    String printName = Justin.getName();
-    System.out.println("The name of this student: " + printName);
-//still have problem
-//how do i get the specific student's info?
-/*in the terminal:
-    Welcome to Annie Wright School director !
-    Here we have some dogs to see.
-    Here is one student now:
-    Hello, my name is Xukun Cai. Nice to meet you!
-    The name of this student: Xukun Cai
-*/
+        public int getclassroom() {
+          return classroom;
+        }
 
-  }
+
+      //"setters"
+
+        public void setName(String a) {
+          className = a;
+        }
+        public void setTeacherName(String b) {
+          classTeacherName = b;
+        }
+        public void setAverageGrade(String c) {
+          classAverageGrade = c;
+        }
+        public void setForWhichTie(String d) {
+          classForWhichTie = d;
+        }
+        public void setclassroom(int g) {
+          classroom = g;
+        }
+
+
+
 
 }
