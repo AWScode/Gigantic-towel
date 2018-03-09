@@ -35,7 +35,7 @@ public class ConnectFour {
     this.column2[2] = "0";
     this.column2[3] = "0";
     this.column2[4] = "0";
-    this.column2[5] = "2";
+    this.column2[5] = "0";
 
     this.column3 = new String[6];
     this.column3[0] = "0";
@@ -105,123 +105,158 @@ public class ConnectFour {
     }
   }
 
-  public void addPiece() {
+  public void addPiece(int colNum, String player) {
       //Place a piece in the column that is passed in.
       //Find the lowest possible empty space and fill.
       //The largest row number that is empty.
-
-      System.out.println("  ----Which player are you?----");
-      System.out.println("  press a - player 1");
-      System.out.println("  press b - player 2");
-      System.out.println("  -------------------------------");
-
-      System.out.print("  "); Scanner q1 = new Scanner(System.in);
-      String player =  q1.next();
-
-//--------for first player-----------
+      String q  = "99";//default
       if(player.equals("a")){
-        System.out.println("  ----Insert (1 - 7) the column number that you want to place the piece----");
-        System.out.print("  "); Scanner q2 = new Scanner(System.in);
-        int colNumBeforeAdjusted =  q2.nextInt();// colNum = the input column number
-        //System.out.println(colNum);
-        int colNum = colNumBeforeAdjusted - 1;
-        // System.out.println(colNumBeforeAdjusted);
-        // System.out.println(colNum);
-
-        if(board[colNum][5].equals("0")){
-          board[colNum][5] = "1";
-        }else{
-          for (int i = 5; i >= 0; i--) {
-            //read the status of the position
-            //System.out.println(board[colNum][i]);
-            if(board[colNum][i].equals("1")||board[colNum][i].equals("2")){
-              //change the upper one to "1"
-              board[colNum][i-1] = "1";
-              break;
-            }else{
-              System.out.print("This column has no space");
-            }
-          }
-        }
-
+        q = "1";
       }
-//--------for second player-----------
       if(player.equals("b")){
-        System.out.println("  ----Insert (1 - 7) the column number that you want to place the piece----");
-        System.out.print("  "); Scanner q2 = new Scanner(System.in);
-        int colNumBeforeAdjusted =  q2.nextInt();// colNum = the input column number
-        //System.out.println(colNum);
-        int colNum = colNumBeforeAdjusted - 1;
-        // System.out.println(colNumBeforeAdjusted);
-        // System.out.println(colNum);
+        q = "2";
+      }
 
+      //System.out.println(player);
         if(board[colNum][5].equals("0")){
-          board[colNum][5] = "2";
+          board[colNum][5] = q;
         }else{
-          for (int i = 5; i >= 0; i--) {
+          for (int i = 0; i <= 5; i++) {
             //read the status of the position
             //System.out.println(board[colNum][i]);
             if(board[colNum][i].equals("1")||board[colNum][i].equals("2")){
               //change the upper one to "1"
-              board[colNum][i-1] = "2";
+
+              board[colNum][i-1] = q;
               break;
-            }else{
-              System.out.print("This column has no space");
             }
           }
         }
-
-      }
-
-  displayBoard();
-
-
 
 
   }
 
-  public void checkFour() {
+  public Boolean checkFour() {
     //record a variable to track the position
     //String position = board [0][0]; //start from the top left
 
-/*
-    int positionX = 0;
-    int positionY = 0;
-    Boolean occupied = false;
+
+    int x = 0;
+    int y = 0;
     Boolean isFour = false;
-    int numberOfPiece = 0;
-    //maybe
-    String direction = ; //down, right, upRight, downRight
+    // String whoWin = "no one yet";
+    int counting = 0;//default
 
     //check if there is a piece
     //check 1 and 2 separately
 
+    //small booleans
+    // Boolean down = false;
+    // Boolean right = false;
+    // Boolean upright = false;
+    // Boolean downright = false;
 
     //finding the position of the first piece
     for (int i = 0; i < 7; i++) { // i=横着的
       for (int j = 0; j < 6; j++) { // j=竖着的
-        positionX = i;
-        positionY = j;
-        board [positionX][positionY];
-          //if(position.equals("1")){ //check if there is a piece
+        x = i;
+        y = j;
+        //find a piece for "player a"
+          // if(board[x][y].equals("1")){
+          //   System.out.println(x + " and " + y + " is found");
+          //   break;
+          //
+          // }
 
-            //record the #
-            numberOfPiece = numberOfPiece +1;
+          //look for the adjacent piece
+            //down
+            // if(board[x][y].equals("1")){
+            //   //System.out.println(x + " and " + y + " is found");
+            //
+            //   //find down
+            //   if(board[x][y + 1].equals("1") && board[x][y + 2].equals("1") && board[x][y + 3].equals("1")){
+            //     //System.out.println("found");
+            //     whoWin = "playera";
+            //     break;
+            //   }else if(board[x + 1][y].equals("1") && board[x + 2][y].equals("1") && board[x + 3][y].equals("1")){
+            //     //System.out.println("found");
+            //     whoWin = "playera";
+            //     break;
+            //   }
+            //
+            // }
+//----------------------------------------
+          //   for (int k=0; k<4; k++){
+          //     if (board[i+k][j-k].equals ("1")){
+          //       k = k+1;
+          //       c = c+1;
+          //       if (c == 6){
+          //        System.out.println("Player 1 won");
+          //        System.out.println("press control + c");
+          //      }
+          //    }
+          //    break;
+          //
+          // }
+//----------------------------------------
+            if(board[x][y].equals("1")){
+              counting = 1;
+              for(int c = 1; c <= y; c++){
+                for (int b = 0; b <= x; b++) {
 
-            //look for the adjacent piece
-              //down
-
-              //right
-
-              //upRight
-
-              //downRight
-
+                  if (board[x][y-c].equals("1")){
+                    counting = counting + 1;
+                    if (counting >= 4) {
+                      System.out.println("down -- Player 1 won");
+                      isFour = true;
+                    }
+                  }
 
 
-          }
+
+                  //find right
+                  if (board[x+b][y].equals("1")){
+                    counting = counting + 1;
+                    if (counting >= 4) {
+                      System.out.println("right -- Player 1 won");
+                      isFour = true;
+                    }
+                  }
+
+                  //find downright
+                  if (board[x+b][y].equals("1")){
+                    counting = counting + 1;
+                    if (counting >= 4) {
+                      System.out.println("downright --Player 1 won");
+                      isFour = true;
+                    }
+                  }
+
+                  //find upright
+                  if (board[x+b][y].equals("1")){
+                    counting = counting + 1;
+                    if (counting >= 4) {
+                      System.out.println("upright -- Player 1 won");
+                      isFour = true;
+                    }
+                  }
+
+
+                }
+              }
+
+
+
+
+            }
+//-------------player b-
+
+
+          //}
       }
-      */
+    }
+
+    return isFour;
     }
 
 
@@ -232,6 +267,60 @@ public class ConnectFour {
   public static void main(String[] args) {
     ConnectFour newGame = new ConnectFour();
     newGame.displayBoard();
-    newGame.addPiece();
+
+
+          System.out.println("  ----Which player are you?----");
+          System.out.println("  press a - player a");
+          System.out.println("  press b - player b");
+          System.out.println("  -------------------------------");
+
+          System.out.print("  "); Scanner q1 = new Scanner(System.in);
+          String player =  q1.next();
+
+          while (true){
+
+
+
+
+            if (player.equals("a")){
+              player = "b";
+            }else{
+              player = "a";
+            }
+            System.out.println("======Player " + player + "'s turn======");
+
+
+            System.out.println("  ----Insert (1 - 7) the column number that you want to place the piece----");
+            System.out.print("  "); Scanner q2 = new Scanner(System.in);
+            int colNumBeforeAdjusted =  q2.nextInt();// colNum = the input column number
+            //System.out.println(colNum);
+            int colNum = colNumBeforeAdjusted - 1;
+            // System.out.println(colNumBeforeAdjusted);
+            // System.out.println(colNum);
+            newGame.addPiece(colNum, player);
+            newGame.displayBoard();
+
+
+
+            Boolean ifFour = newGame.checkFour();
+            if(ifFour){
+              break;
+            }
+
+
+
+
+          }
+
+
+
+
+
+
+
+
+
+
+
   }
 }
