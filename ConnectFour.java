@@ -136,128 +136,398 @@ public class ConnectFour {
 
   }
 
-  public Boolean checkFour() {
-    //record a variable to track the position
-    //String position = board [0][0]; //start from the top left
-
-
+  public Boolean checkFourVertical() {
     int x = 0;
     int y = 0;
     Boolean isFour = false;
-    // String whoWin = "no one yet";
-    int counting = 0;//default
+    int countinga = 0;//default
+    int countingb = 0;//default
 
-    //check if there is a piece
-    //check 1 and 2 separately
 
-    //small booleans
-    // Boolean down = false;
-    // Boolean right = false;
-    // Boolean upright = false;
-    // Boolean downright = false;
-
-    //finding the position of the first piece
     for (int i = 0; i < 7; i++) { // i=横着的
       for (int j = 0; j < 6; j++) { // j=竖着的
         x = i;
         y = j;
-        //find a piece for "player a"
-          // if(board[x][y].equals("1")){
-          //   System.out.println(x + " and " + y + " is found");
-          //   break;
-          //
-          // }
 
-          //look for the adjacent piece
-            //down
-            // if(board[x][y].equals("1")){
-            //   //System.out.println(x + " and " + y + " is found");
-            //
-            //   //find down
-            //   if(board[x][y + 1].equals("1") && board[x][y + 2].equals("1") && board[x][y + 3].equals("1")){
-            //     //System.out.println("found");
-            //     whoWin = "playera";
-            //     break;
-            //   }else if(board[x + 1][y].equals("1") && board[x + 2][y].equals("1") && board[x + 3][y].equals("1")){
-            //     //System.out.println("found");
-            //     whoWin = "playera";
-            //     break;
-            //   }
-            //
-            // }
-//----------------------------------------
-          //   for (int k=0; k<4; k++){
-          //     if (board[i+k][j-k].equals ("1")){
-          //       k = k+1;
-          //       c = c+1;
-          //       if (c == 6){
-          //        System.out.println("Player 1 won");
-          //        System.out.println("press control + c");
-          //      }
-          //    }
-          //    break;
-          //
-          // }
-//----------------------------------------
-            if(board[x][y].equals("1")){
-              counting = 1;
-              for(int c = 1; c <= y; c++){
-                for (int b = 0; b <= x; b++) {
+        if(board[x][y].equals("1")){
+             countinga = 1;
+             for(int c = 1; c <= y; c++){
 
-                  if (board[x][y-c].equals("1")){
-                    counting = counting + 1;
-                    if (counting >= 4) {
-                      System.out.println("down -- Player 1 won");
-                      isFour = true;
-                    }
-                  }
-
-
-
-                  //find right
-                  if (board[x+b][y].equals("1")){
-                    counting = counting + 1;
-                    if (counting >= 4) {
-                      System.out.println("right -- Player 1 won");
-                      isFour = true;
-                    }
-                  }
-
-                  //find downright
-                  if (board[x+b][y].equals("1")){
-                    counting = counting + 1;
-                    if (counting >= 4) {
-                      System.out.println("downright --Player 1 won");
-                      isFour = true;
-                    }
-                  }
-
-                  //find upright
-                  if (board[x+b][y].equals("1")){
-                    counting = counting + 1;
-                    if (counting >= 4) {
-                      System.out.println("upright -- Player 1 won");
-                      isFour = true;
-                    }
-                  }
-
-
-                }
+                 if (board[x][y-c].equals("1")){
+                   countinga = countinga + 1;
+                   if (countinga >= 4) {
+                     System.out.println("down -- Player a won");
+                     isFour = true;
+                   }
+                 }
               }
+        }
+
+        if(board[x][y].equals("2")){
+             countingb = 1;
+             for(int c = 1; c <= y; c++){
+
+                 if (board[x][y-c].equals("2")){
+                   countingb = countingb + 1;
+                   if (countingb >= 4) {
+                     System.out.println("down -- Player b won");
+                     isFour = true;
+                   }
+                 }
+              }
+        }
 
 
 
 
-            }
-//-------------player b-
 
-
-          //}
       }
     }
 
+
     return isFour;
+  }
+
+  public Boolean checkFourHorizontal() {
+    int x = 0;
+    int y = 0;
+    Boolean isFour = false;
+    int countinga = 0;//default
+    int countingb = 0;//default
+
+
+    for (int i = 0; i < 7; i++) { // i=横着的
+      for (int j = 0; j < 6; j++) { // j=竖着的
+        x = i;
+        y = j;
+
+        if(board[x][y].equals("1")){
+             countinga = 1;
+             for(int c = 1; c <= 6-x; c++){
+
+                 if (board[x+c][y].equals("1")){
+                   countinga = countinga + 1;
+                   if (countinga >= 4) {
+                     System.out.println("down -- Player a won");
+                     isFour = true;
+                   }
+                 }
+              }
+        }
+
+        if(board[x][y].equals("2")){
+             countingb = 1;
+             for(int c = 1; c <= 6-x; c++){
+
+                 if (board[x+c][y].equals("2")){
+                   countingb = countingb + 1;
+                   if (countingb >= 4) {
+                     System.out.println("down -- Player b won");
+                     isFour = true;
+                   }
+                 }
+              }
+        }
+
+
+
+
+
+      }
     }
+
+
+    return isFour;
+  }
+
+  public Boolean checkFourDownRight() {
+    int x = 0;
+    int y = 0;
+    Boolean isFour = false;
+    int countinga = 0;//default
+    int countingb = 0;//default
+    Boolean firstCount = false;
+    // int c = 0;
+    // int d = 0;
+
+    for (int i = 0; i < 7; i++) { // i=横着的
+      for (int j = 0; j < 6; j++) { // j=竖着的
+        x = i;
+        y = j;
+
+        if(board[x][y].equals("1")){
+             countinga = 1;
+             //System.out.println("fist count +1");
+             firstCount = true;
+             while(firstCount){
+               //System.out.println("in the loop11111");
+
+
+
+               if (1 <= 6-x && 1 <= 5-y) {
+                 //System.out.println("in the loop22222");
+                 if (board[x+1][y+1]=="1"){
+                   countinga = countinga + 1;
+                   //System.out.println("count 2");
+                   //---------------------------
+                   if (2 <= 6-x && 2 <= 5-y) {
+                     //System.out.println("in the loop333333");
+                     if (board[x+2][y+2]=="1"){
+                       countinga = countinga + 1;
+                       //System.out.println("count 3");
+                       //----------------------
+                       if (3 <= 6-x && 3 <= 5-y) {
+                         //System.out.println("in the loop44444");
+                         if (board[x+3][y+3]=="1"){
+                           countinga = countinga + 1;
+                           //System.out.println("count 4");
+                           isFour = true;
+                           System.out.println("Player a win!!!!!");
+                           break;
+
+
+
+                         }else{
+                           break;
+                         }
+                       }else{
+                         break;
+                       }
+
+
+                     }else{
+                       break;
+                     }
+                   }else{
+                     break;
+                   }
+
+                 }else{
+                   //countinga = 0;
+                   //System.out.println("count = 0");
+                   break;
+                 }
+               }else{
+                 break;
+               }
+
+             }
+
+        }
+        //----------player b--------------------
+        if(board[x][y].equals("2")){
+             countingb = 1;
+             //System.out.println("fist count +1");
+             firstCount = true;
+             while(firstCount){
+               //System.out.println("in the loop11111");
+
+
+
+               if (1 <= 6-x && 1 <= 5-y) {
+                 //System.out.println("in the loop22222");
+                 if (board[x+1][y+1]=="2"){
+                   countingb = countingb + 1;
+                   //System.out.println("count 2");
+                   //---------------------------
+                   if (2 <= 6-x && 2 <= 5-y) {
+                     //System.out.println("in the loop333333");
+                     if (board[x+2][y+2]=="2"){
+                       countingb = countingb + 1;
+                       //System.out.println("count 3");
+                       //----------------------
+                       if (3 <= 6-x && 3 <= 5-y) {
+                         //System.out.println("in the loop44444");
+                         if (board[x+3][y+3]=="2"){
+                           countingb = countingb + 1;
+                           //System.out.println("count 4");
+                           isFour = true;
+                           System.out.println("Player b win!!!!!");
+                           break;
+
+
+
+                         }else{
+                           break;
+                         }
+                       }else{
+                         break;
+                       }
+
+
+                     }else{
+                       break;
+                     }
+                   }else{
+                     break;
+                   }
+
+                 }else{
+                   //countinga = 0;
+                   //System.out.println("count = 0");
+                   break;
+                 }
+               }else{
+                 break;
+               }
+
+             }
+
+        }
+
+
+
+      }
+    }
+
+
+    return isFour;
+  }
+
+  public Boolean checkFourUpRight() {
+    int x = 0;
+    int y = 0;
+    Boolean isFour = false;
+    int countinga = 0;//default
+    int countingb = 0;//default
+    Boolean firstCount = false;
+    // int c = 0;
+    // int d = 0;
+
+    for (int i = 0; i < 7; i++) { // i=横着的
+      for (int j = 0; j < 6; j++) { // j=竖着的
+        x = i;
+        y = j;
+
+        if(board[x][y].equals("1")){
+             countinga = 1;
+             //System.out.println("fist count +1");
+             firstCount = true;
+             while(firstCount){
+               //System.out.println("in the loop11111");
+
+
+
+               if (1 <= 6-x && 1 <= y) {
+                 //System.out.println("in the loop22222");
+                 if (board[x+1][y-1]=="1"){
+                   countinga = countinga + 1;
+                   //System.out.println("count 2");
+                   //---------------------------
+                   if (2 <= 6-x && 2 <= y) {
+                     //System.out.println("in the loop333333");
+                     if (board[x+2][y-2]=="1"){
+                       countinga = countinga + 1;
+                       //System.out.println("count 3");
+                       //----------------------
+                       if (3 <= 6-x && 3 <= y) {
+                         //System.out.println("in the loop44444");
+                         if (board[x+3][y-3]=="1"){
+                           countinga = countinga + 1;
+                           //System.out.println("count 4");
+                           isFour = true;
+                           System.out.println("Player a win!!!!!");
+                           break;
+
+
+
+                         }else{
+                           break;
+                         }
+                       }else{
+                         break;
+                       }
+
+
+                     }else{
+                       break;
+                     }
+                   }else{
+                     break;
+                   }
+
+                 }else{
+                   //countinga = 0;
+                   //System.out.println("count = 0");
+                   break;
+                 }
+               }else{
+                 break;
+               }
+
+             }
+
+        }
+        //----------player b--------------------
+        if(board[x][y].equals("2")){
+             countingb = 1;
+             //System.out.println("fist count +1");
+             firstCount = true;
+             while(firstCount){
+               //System.out.println("in the loop11111");
+
+
+
+               if (1 <= 6-x && 1 <= y) {
+                 //System.out.println("in the loop22222");
+                 if (board[x+1][y-1]=="2"){
+                   countingb = countingb + 1;
+                   //System.out.println("count 2");
+                   //---------------------------
+                   if (2 <= 6-x && 2 <= y) {
+                     //System.out.println("in the loop333333");
+                     if (board[x+2][y-2]=="2"){
+                       countingb = countingb + 1;
+                       //System.out.println("count 3");
+                       //----------------------
+                       if (3 <= 6-x && 3 <= y) {
+                         //System.out.println("in the loop44444");
+                         if (board[x+3][y-3]=="2"){
+                           countingb = countingb + 1;
+                           //System.out.println("count 4");
+                           isFour = true;
+                           System.out.println("Player b win!!!!!");
+                           break;
+
+
+
+                         }else{
+                           break;
+                         }
+                       }else{
+                         break;
+                       }
+
+
+                     }else{
+                       break;
+                     }
+                   }else{
+                     break;
+                   }
+
+                 }else{
+                   //countinga = 0;
+                   //System.out.println("count = 0");
+                   break;
+                 }
+               }else{
+                 break;
+               }
+
+             }
+
+        }
+
+
+
+      }
+    }
+
+
+    return isFour;
+  }
+
 
 
 
@@ -302,8 +572,11 @@ public class ConnectFour {
 
 
 
-            Boolean ifFour = newGame.checkFour();
-            if(ifFour){
+            Boolean ifFourDown = newGame.checkFourVertical();
+            Boolean ifFourRight = newGame.checkFourHorizontal();
+            Boolean ifFourDownRight = newGame.checkFourDownRight();
+            Boolean ifFourUpRight = newGame.checkFourUpRight();
+            if(ifFourDown || ifFourRight || ifFourDownRight || ifFourUpRight){
               break;
             }
 
