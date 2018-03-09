@@ -94,6 +94,11 @@ public class ConnectFour {
 
   }
 
+  //check the overflow
+  // public Boolean noOverflow(){
+  //
+  // }
+
   // Other methods here
   public void displayBoard(){
     for (int j = 0; j < 6; j++) {
@@ -132,8 +137,6 @@ public class ConnectFour {
             }
           }
         }
-
-
   }
 
   public Boolean checkFourVertical() {
@@ -228,10 +231,6 @@ public class ConnectFour {
                  }
               }
         }
-
-
-
-
 
       }
     }
@@ -530,10 +529,6 @@ public class ConnectFour {
 
 
 
-
-
-
-
   public static void main(String[] args) {
     ConnectFour newGame = new ConnectFour();
     newGame.displayBoard();
@@ -548,9 +543,6 @@ public class ConnectFour {
           String player =  q1.next();
 
           while (true){
-
-
-
 
             if (player.equals("a")){
               player = "b";
@@ -584,13 +576,6 @@ public class ConnectFour {
 
 
           }
-
-
-
-
-
-
-
 
 
 
